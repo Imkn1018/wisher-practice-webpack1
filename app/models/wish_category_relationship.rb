@@ -1,0 +1,2 @@
+class WishCategoryRelationship < ApplicationRecord
+end

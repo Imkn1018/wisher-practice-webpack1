@@ -8,6 +8,14 @@ module Api
           wishes: wishes
         }, status: :ok
       end
+      
+      def show
+        wish = Wish.find_by(params[:id])
+        
+        render json: {
+          wish: wish
+        },status: :ok
+      end
     end
   end
 end

@@ -1,3 +1,3 @@
 class CompleteReview < ApplicationRecord
-     belongs_to :wish
+  belongs_to :wish
 end
