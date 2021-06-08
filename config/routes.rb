@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: redirect('/wishes')
   
   get 'wishes', to: 'site#index'
+  get 'wishes/new', to: 'site#index'
   get "wishes/:wish_id/complete_reviews" , to: "site#index"
   get "categories", to: "site#index"
   resource :users

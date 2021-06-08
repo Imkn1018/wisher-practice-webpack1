@@ -1,5 +1,5 @@
 import React, {useEffect,useReducer} from 'react'
-import {useGetWishes} from "../../api/Wishes";
+import {useGetWishes,useCreateWishes} from "../../api/Wishes";
 
 import {
   initialState,
@@ -21,10 +21,11 @@ export const Wishes = () =>  {
     })
     )
     },[])
+  
   return (
     <>
       <div>Helllo wishes</div>
-      <div></div>
+      
       {
         state.wishesList.map(wish =>
           <div key={wish.id}>
@@ -32,6 +33,7 @@ export const Wishes = () =>  {
           </div>
         )
       }
+      
     </>
   )
 }

@@ -1,9 +1,20 @@
 // --- ここから追加 ---
 import { REQUEST_STATE } from '../constants';
+import { createContext,useReducer} from "react"
 
 export const initialState = {
   fetchState: REQUEST_STATE.INITIAL,
-  wishesList: [],
+  wishesList: [{
+    id: null,
+    wish_title: "",
+    memo: "",
+    wish_image_id: "",
+    span: null,
+    difficulty: null,
+    isComplited: false,
+    url: ""
+    
+    }]
 };
 
 export const wishesActionTyps = {
@@ -28,3 +39,18 @@ export const wishesReducer = (state, action) => {
   }
 }
 // --- ここまで追加 ---
+
+export const Store = createContext({
+  globalState: initialState,
+  setGloabalState: () => null,
+});
+
+export const StoreProvider = ({ children }) => {
+  const [globalState, setGloabalState] = useReducer(wishesReducer, initialState);
+  return (
+    <Store.Provider value={{ globalState, setGloabalState }}>
+      {children}
+    </Store.Provider>
+  );
+};
+
